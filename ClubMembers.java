@@ -12,7 +12,9 @@ public class ClubMembers{
     public ArrayList<MemberInfo> getMemberList(){
         return membersList;
     }
-    
+    public void setMembersList(ArrayList<MemberInfo> members){
+        membersList=members;
+    }
     public ArrayList<MemberInfo> removeMembers(int year){
         ArrayList<MemberInfo> alumni=new ArrayList<MemberInfo>();
         for(int i=0;i<membersList.size();i++){
@@ -21,8 +23,10 @@ public class ClubMembers{
                 if(member.inGoodStanding()){
                     alumni.add(member);
                 }
-                
+                membersList.remove(i);
+                i--;
             }
         }
+        return alumni;
     }
 }
